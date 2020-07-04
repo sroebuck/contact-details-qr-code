@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Test and Protect</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css"
+        integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900,400italic" rel="stylesheet"
+        type="text/css">
+    <style>
+        body {
+            font-family:Roboto, Arial, sans-serif;
+            font-size: 12px;
+            letter-spacing: 0;
+        }
+        h1 {
+            font-size: 50px;
+            font-style: normal;
+            font-weight: 100;
+            letter-spacing: -0.5px;
+            text-align: center;
+        }
+        label {
+            letter-spacing: 0;
+        }
+        input {
+            font-weight: 400;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <div class="pure-g">
+            <div class="pure-u-2-24"></div>
+            <div class="pure-u-20-24">
+                <h1>Test and Protect</h1>
+
+                <section id="app"></section>
+            </div>
+            <div class="pure-u-2-24"></div>
+        </div>
+    </div>
+    <script type="module">
+        import init from './pkg/package.js';
+        init('./pkg/package_bg.wasm');
+    </script>
+</body>
+
+</html>
