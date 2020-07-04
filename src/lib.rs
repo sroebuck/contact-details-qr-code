@@ -52,15 +52,11 @@ fn update(msg: Msg, model: &mut Model, _: &mut impl Orders<Msg>) {
 fn view(model: &Model) -> Node<Msg> {
     let vcard_string = vcard(&model.name, &model.telephone, &model.date);
 
-    let svg = if model.name.len() > 5
-        && model.name.trim().contains(" ")
-        && model
-            .telephone
-            .chars()
-            .filter(|c| c.is_ascii_digit())
-            .count()
-            >= 9
-    {
+    let phone_number_is_valid =
+        phonenumber::parse(Some(phonenumber::country::Id::GB), &model.telephone)
+            .map(|n| phonenumber::is_valid(&n))
+            .unwrap_or(false);
+    let svg = if model.name.len() > 5 && model.name.trim().contains(" ") && phone_number_is_valid {
         let qr = QrCode::encode_text(&vcard_string, QrCodeEcc::Medium).unwrap();
         qr.to_svg_string(4)
     } else {
